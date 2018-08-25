@@ -1,7 +1,6 @@
 package example
 
 import io.ktor.content.default
-import io.ktor.content.files
 import io.ktor.content.static
 import io.ktor.content.staticRootFolder
 import io.ktor.routing.routing
@@ -13,8 +12,7 @@ fun main(args: Array<String>) {
     val server = embeddedServer(Netty, port = 8080) {
         routing {
             static("/") {
-                staticRootFolder = File("./static")
-                files(".")
+                staticRootFolder = File("./non-existent-static")
                 default("index.html")
             }
         }
